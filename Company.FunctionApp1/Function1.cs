@@ -1,17 +1,15 @@
-﻿using Company.FunctionApp1.Extensions;
-using Company.FunctionApp1.Models;
+﻿using Company.FunctionApp1.Models;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.Functions.Worker.Converters;
 
 namespace Company.FunctionApp1;
 
 public class Function1(ILogger<Function1> logger)
 {
     [Function("Function1")]
-    public IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequest req, [InputConverter(typeof(QueryParamsConverter))] Test thing)
+    public IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequest req, Test thing)
     {
         logger.LogInformation("C# HTTP trigger function processed a request.");
         return new OkObjectResult("Welcome to Azure Functions!");
