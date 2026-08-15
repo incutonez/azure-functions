@@ -1,0 +1,59 @@
+﻿{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "My API",
+    "description": "My Azure Functions API",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:7059"
+    }
+  ],
+  "paths": {
+    "/api/Function1": {
+      "get": {
+        "tags": [
+          "Function1"
+        ],
+        "parameters": [
+          {
+            "name": "thing",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Test"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Test": {
+        "type": "object",
+        "properties": {
+          "blah": {
+            "type": "string",
+            "nullable": true
+          },
+          "isThing": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Function1"
+    }
+  ]
+}

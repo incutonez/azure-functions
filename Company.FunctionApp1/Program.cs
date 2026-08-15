@@ -27,6 +27,10 @@ builder.Services.AddSwashBuckle((options) =>
         }
     };
     options.Title = "My API";
+    options.ConfigureSwaggerGen = ((action) =>
+    {
+        action.OperationFilter<QueryParamsOperationFilter>();
+    });
 });
 builder.Services.Configure<WorkerOptions>((options) =>
 {
