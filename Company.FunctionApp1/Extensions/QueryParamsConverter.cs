@@ -11,8 +11,7 @@ public class QueryParamsConverter : IInputConverter
         var source = context.FunctionContext.BindingContext.BindingData["Query"];
         if (source != null)
         {
-            var dictionary = JsonConvert.DeserializeObject<Dictionary<string, string>>((string) source);
-            var model = Activator.CreateInstance(context.TargetType, dictionary);
+            var model = JsonConvert.DeserializeObject((string) source, context.TargetType);
 
             return ConversionResult.Success(model);
         }

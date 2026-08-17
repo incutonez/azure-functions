@@ -17,7 +17,6 @@ public class QueryParamsOperationFilter : IOperationFilter
         operation.Parameters = new List<IOpenApiParameter>();
         foreach (var content in operation.RequestBody.Content)
         {
-            // TODOJEF: TEST OUTPUT
             operation.Parameters.Add(new OpenApiParameter
             {
                 Name = queryParam.Name,
